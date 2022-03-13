@@ -5,12 +5,15 @@ import 'package:retrofit/retrofit.dart';
 part 'api.g.dart';
 part 'api.freezed.dart';
 
-@RestApi(baseUrl: "https://api.quotable.io/")
+@RestApi(baseUrl: "https://api.qusotable.io/")
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
   @GET("/random")
   Future<Quotes> getRandomQuotes();
+
+  @GET("/random")
+  Future<Quotes> getRandomQuotesByQuery(@Query('tags') String tags);
 }
 
 @freezed

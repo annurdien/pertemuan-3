@@ -9,3 +9,14 @@ final singleRandomQuotesProvider = FutureProvider<Quotes>((ref) async {
 
   return response;
 });
+
+final singleRandomQuotesProviderByTags =
+    FutureProvider.autoDispose.family<Quotes, String>(
+  (ref, tags) async {
+    final client = ref.watch(httpProvider);
+
+    final response = await client.getRandomQuotesByQuery(tags);
+
+    return response;
+  },
+);

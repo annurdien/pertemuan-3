@@ -50,11 +50,23 @@ class _QuotesHomePageState extends ConsumerState<QuotesHomePage> {
                 data: (quotes) {
                   return Padding(
                     padding: EdgeInsets.all(30),
-                    child: Text(
-                      quotes.content,
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          quotes.content,
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          quotes.author,
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
                     ),
                   );
                 },
